@@ -1,0 +1,37 @@
+@import "./variables.scss";
+nav{
+    background: $nav-bg-color;
+    max-height: 5rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $horizontal-body-pad;
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+
+        
+        .iconBtn{
+            width: 2rem;
+            height: 2rem;
+            color: $grey-icons;
+            &:hover{
+                background-color: $color-grey;
+            }
+            &:active{
+                transform: scale(0.95) translateY(1px) translateX(-2px);
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .iconBtn:not(:last-child){
+        display: none;
+    }
+}
