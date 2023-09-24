@@ -1,0 +1,13 @@
+:root {
+    --bg-color: #242121;
+    --nav-bg-color: #292828;
+    --grey-text: #808080;
+    --grey-icons: #e7e2e2cf;
+    --text-primary: #ffffff;
+    --text-secondary: #e2e2e2;
+    --text-tertiary: rgba(255, 255, 255, 0.5);
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-grey: #373737;
+    --horizontal-body-pad: 0 5%;
+}

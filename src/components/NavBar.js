@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/NavStyle.scss";
+import "../styles/NavStyle.css";
 import logo from "../assets/logo.png";
 import textLogo from "../assets/logo-text.png";
 import InputBox from "./InputBox";
@@ -7,15 +7,23 @@ import { BiBookHeart } from "react-icons/bi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import userAvatar from "../assets/avatar.png";
 import person from "../assets/person-premium.svg";
-
-import TextButton from "./TextButton";
+import BooksContext from "../context/BooksContext";
+import { useContext } from "react";
 
 const NavBar = () => {
     const [searchInput, setSearchInput] = useState("");
+    const books = useContext(BooksContext);
 
     useEffect(() => {
-        console.log("searchInput");
-    }, []);
+        // search for books and update booksData
+        fetch(
+            `https://www.googleapis.com/books/v1/volumes?q=${searchInput}&maxResults=40`
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                books.setBooksData(data);
+            });
+    }, [searchInput]);
 
     return (
         <nav>
@@ -24,10 +32,9 @@ const NavBar = () => {
                 <img className="logo" src={textLogo} alt="textLogo" />
             </div>
             <div className="navSecM">
-                <InputBox setSearchInput={setSearchInput} />
-                <TextButton
-                    text="Search"
-                    onClick={() => console.log(searchInput)}
+                <InputBox
+                    searchInput={searchInput}
+                    setSearchInput={setSearchInput}
                 />
             </div>
             <div className="navSecR">

@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 
 import BooksContext from "./context/BooksContext";
 import BooksGrid from "./components/BooksGrid";
+import BookShowCase from "./components/BookShowCase";
 
 // import process for environment variables
 
@@ -42,11 +43,13 @@ function App() {
             });
     }, []);
 
-    console.log(books);
+    // console.log(books);
 
     return (
         <div className="App">
             <NavBar />
+            <BookShowCase />
+            <h2>More Books</h2>
             <BooksGrid />
         </div>
     );

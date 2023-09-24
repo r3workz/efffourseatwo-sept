@@ -4,13 +4,11 @@ import App from "./App";
 
 import BooksProvider from "./context/BooksProvider";
 
-import "./styles/index.scss";
+import "./styles/index.css";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BooksProvider>
-            <App />
-        </BooksProvider>
-    </React.StrictMode>,
+    <BooksProvider>
+        <App />
+    </BooksProvider>,
     document.getElementById("root")
 );
